@@ -6,7 +6,7 @@ varl="field3"
 
 myList = []
 myList.append(vari)
-myList.append(varj)
+myList.insert(1,varj)
 myList += [vark]
 
 
