@@ -1,7 +1,9 @@
-[ ] eine liste anlegen
-[ ] list mit variablen füllen (3)
+[x] eine liste anlegen
+[x] list mit variablen füllen (3)
 
-[ ] gesamte liste ausgeben
-[ ] jedes element einzeln ausgeben
+[x] gesamte liste ausgeben
+[x] jedes element einzeln ausgeben
 
-[ ] durch die ganze Liste iterieren
+[x] durch die ganze Liste iterieren
+
+[ ] eine Methode definieren
