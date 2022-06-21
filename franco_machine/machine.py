@@ -47,7 +47,7 @@ class machine():
 
             success = False
 
-        # assure total balance is given
+        # assure total balance is given # ToDo replace by something more fancy 
         assert (self.haben + self.verbrauch == self.total_register)
 
         return success
