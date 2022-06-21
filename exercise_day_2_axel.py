@@ -1,13 +1,16 @@
 #
+import datetime
+
 vari="field0"
 varj="field1"
 vark="field2"
-varl="field3"
+varl=datetime.datetime.fromisoformat('2020-03-11')
 
 myList = []
 myList.append(vari)
-myList.insert(1,varj)
+myList.insert(0,varj)
 myList += [vark]
+myList = myList + [varl]
 
 
 print(myList)
@@ -17,3 +20,4 @@ for i in myList:
 
 
 print("\n ------- \n")
+print (myList[0],myList[1],myList[2],myList[3])
