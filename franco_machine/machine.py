@@ -16,9 +16,9 @@ class machine():
 
         self.postal_sn=None
 
-        self.haben = 0
-        self.verbrauch = 0
-        self.total_register = 0
+        self.haben = 0                # r1
+        self.verbrauch = 0            # r2
+        self.total_register = 0       # r3
 
         # ToDo: upper limit
 
@@ -31,3 +31,23 @@ class machine():
 
         self.haben          += amount
         self.total_register += amount
+
+    def frank_money_amount(self, amount):
+
+        success = False
+
+        if self.haben >= amount:
+
+            self.haben          -= amount
+            self.verbrauch      += amount
+
+            success = True
+
+        else:
+
+            success = False
+
+        # assure total balance is given
+        assert (self.haben + self.verbrauch == self.total_register)
+
+        return success

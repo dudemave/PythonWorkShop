@@ -49,11 +49,26 @@ class TestMachineMethods(unittest.TestCase):
             )
 
         machine_one.load_money_amount(100000)
-        machine_one.frank(2500)
+        success = machine_one.frank_money_amount(2500)
 
+        self.assertTrue(success)
         self.assertEqual( 97500, machine_one.haben)
         self.assertEqual(100000, machine_one.total_register)
 
+
+    def test_frank_overdue(self):
+
+        
+        machine_one = franco_machine.machine.machine(
+            machine_type="PostBaseMini",
+            country = 'de',
+            sw_version = '0.0.1'
+            )
+
+        machine_one.load_money_amount( 100000)
+        success = machine_one.frank_money_amount(100001)
+
+        self.assertFalse(success)
 
 
 if __name__ == '__main__':

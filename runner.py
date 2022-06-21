@@ -13,9 +13,11 @@ myMachine = franco_machine.machine.machine(
 print(myMachine.__dict__)
 
 print(myMachine.haben)
-myMachine.load_money_amount(100)
+myMachine.load_money_amount(10000)
 print(myMachine.haben)
-myMachine.load_money_amount(amount=5000)
+myMachine.load_money_amount(amount=500000)
 print(myMachine.haben)
 
 print(myMachine.__dict__)
+
+myMachine.frank_money_amount(1000)
