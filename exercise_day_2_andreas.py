@@ -14,5 +14,5 @@ print(myVarDate.year)
 print (myList)
 
 
-for ?? in ?? :
-    print (??)
+for i in myList :
+    print (i)
