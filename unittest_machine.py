@@ -29,15 +29,31 @@ class TestMachineMethods(unittest.TestCase):
             sw_version = '0.0.1'
         )
 
-        machine_one.load_money_amount(100)
+        machine_one.load_money_amount(100000)
 
-        self.assertEqual(100, machine_one.haben)
-        self.assertEqual(100, machine_one.total_register)
+        self.assertEqual(100000, machine_one.haben)
+        self.assertEqual(100000, machine_one.total_register)
 
-        machine_one.load_money_amount(5000)
+        machine_one.load_money_amount(5000000)
 
-        self.assertEqual(5100, machine_one.haben)
-        self.assertEqual(5100, machine_one.total_register)
+        self.assertEqual(5100000, machine_one.haben)
+        self.assertEqual(5100000, machine_one.total_register)
+
+
+def test_frank(self):
+
+    machine_one = franco_machine.machine.machine(
+        machine_type="PostBaseMini",
+        country = 'de',
+        sw_version = '0.0.1'
+    )
+
+    machine_one.load_money_amount(100000)
+    machine_one.frank(2500)
+
+    self.assertEqual(97500, machine_one.haben)
+    self.assertEqual(10000, machine_one.total_register)
+
 
 
 if __name__ == '__main__':
