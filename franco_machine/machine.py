@@ -17,8 +17,8 @@ class machine():
         self.postal_sn=None
 
         self.haben = 0
-        self.verbrauch = None
-        self.total_register = None
+        self.verbrauch = 0
+        self.total_register = 0
 
         # ToDo: upper limit
 
@@ -29,4 +29,5 @@ class machine():
         # ToDo: type enforcement
         # ToDo: check ragne: not negative and upper limit
 
-        self.haben += amount
+        self.haben          += amount
+        self.total_register += amount
