@@ -14,6 +14,7 @@ class TestMachineMethods(unittest.TestCase):
         machine_type="PostBaseMini",
         country = 'de',
         max_transaction_amount = 10000000,
+        max_haben = 10000000,
         sw_version = '0.0.1'
         )
 
@@ -64,17 +65,21 @@ class TestMachineMethods(unittest.TestCase):
         """ too much money - in a single money load process """
 
 
-        with self.assertRaises(LimitError):
-            self.machine_one.load_money_amount( 10000001)
+        #with self.assertRaises(LimitError):
+        self.assertFalse(self.machine_one.load_money_amount( 10000001)[0])
+        self.assertTrue('is greater than max' in
+                        self.machine_one.load_money_amount( 10000001)[1])
 
-    @unittest.skipIf(True, 'WIP')
+
     def test_load_money(self):
         """ too much money - in a multiple money load processes """
 
-        with self.assertRaises(LimitError):
-            self.machine_one.load_money_amount( 5000000)
-            self.machine_one.load_money_amount( 5000000)
-            self.machine_one.load_money_amount( 1)
+
+        self.assertTrue(self.machine_one.load_money_amount( 5000000)[0])
+        self.assertTrue(self.machine_one.load_money_amount( 5000000)[0])
+        self.assertFalse(self.machine_one.load_money_amount( 1)[0])
+        self.assertTrue('money exceeds the limit' in
+                        self.machine_one.load_money_amount( 1)[1])
 
 
 if __name__ == '__main__':
