@@ -6,6 +6,7 @@ import  franco_machine
 myMachine = franco_machine.machine.machine(
     machine_type="PostBaseMini",
     country = 'de',
+    max_load_amount = 10000000,
     sw_version = '0.0.1'
 )
 
@@ -21,3 +22,6 @@ print(myMachine.haben)
 print(myMachine.__dict__)
 
 myMachine.frank_money_amount(1000)
+myMachine.load_money_amount(10000001)
+
+print('xxx')
