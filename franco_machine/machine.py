@@ -8,7 +8,7 @@ class machine():
     def __init__(self,
                  machine_type,
                  country,
-                 max_load_amount,
+                 max_transaction_amount,
                  sw_version ):
 
         self.machine_type=machine_type
@@ -25,7 +25,7 @@ class machine():
         self.total_register = 0       # r3
 
         # ToDo: upper limit
-        self.max_load_amount = max_load_amount
+        self.max_transaction_amount = max_transaction_amount
 
 
     def load_money_amount(self, amount):
@@ -33,8 +33,10 @@ class machine():
 
         # ToDo: type enforcement
         # ToDo: check ragne: not negative and upper limit
-        assert(self.max_load_amount > amount ), \
-        'too much money loaded'
+        #assert(self.max_transaction_amount > amount ), \
+        #'too much money loaded'
+        if self.max_transaction_amount < amount:
+            raise LimitError
 
         self.haben          += amount
         self.total_register += amount
