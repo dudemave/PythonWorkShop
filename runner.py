@@ -1,4 +1,5 @@
 # #!/usr/bin/env python3
+import sys
 
 import  franco_machine
 from franco_machine.limit_error import LimitError
@@ -21,10 +22,23 @@ print(myMachine.haben)
 
 print(myMachine.__dict__)
 
+
 myMachine.frank_money_amount(1000)
+
+transaction_amount = 10000001
+
+if myMachine.load_money_amount(transaction_amount):
+    #load succesfull
+    pass
+
+else:
+    # load not succesfull
+    pass
+
 try:
     myMachine.load_money_amount(10000001)
-except LimitError:
+except LimitError, msg:
     print("hurra es ist bescheiden schön")
+    sys.exit(msg)
 
 print('xxx')
