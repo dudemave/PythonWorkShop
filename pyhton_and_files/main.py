@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os, sys
 
 from pathlib import Path
@@ -27,7 +29,7 @@ p = Path.cwd()
 #    print (xx)
 
 
-[ print (xx) for xx in p.iterdir() ]
+[ print(xx) for xx in p.iterdir() ]
 
 myList =['aaa', 'bbb', 'ccc' ]
 
