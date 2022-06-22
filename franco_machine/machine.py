@@ -9,7 +9,7 @@ class machine():
                  machine_type,
                  country,
                  max_transaction_amount,
-#                 max_haben,
+                 max_haben,
                  sw_version ):
 
         self.machine_type=machine_type
@@ -27,7 +27,7 @@ class machine():
 
         # ToDo: upper limit
         self.max_transaction_amount = max_transaction_amount
-#        self.max_haben = max_haben
+        self.max_haben = max_haben
 
 
     def load_money_amount(self, amount):
@@ -37,17 +37,33 @@ class machine():
         # ToDo: check ragne: not negative and upper limit
         #assert(self.max_transaction_amount > amount ), \
         #'too much money loaded'
+
+
+
         if self.max_transaction_amount < amount:
 
-            raise LimitError(('Transaction amount is greater than max '
-                              f'({self.max_transaction_amount})'))
+            msg = ('Transaction amount is greater than max '
+                    f'({self.max_transaction_amount})')
 
-        # haben register darf nie den max_haben überschreiten
+            return (False , msg)
+
+        elif self.haben + amount > self.max_haben:
+
+            msg = 'the amount of money exceeds the limit'
+
+            return (False, msg)
 
 
+        else:
+            self.haben          += amount
+            self.total_register += amount
+            return (True, '')
 
-        self.haben          += amount
-        self.total_register += amount
+
+        #    raise LimitError(('Transaction amount is greater than max '
+        #                      f'({self.max_transaction_amount})'))
+
+
 
     def frank_money_amount(self, amount):
 
