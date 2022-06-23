@@ -52,31 +52,29 @@ assert all_prd['xyz 150 gr'] == 2.7
 
 #for (int ii; ii:=0; ii<=10; ii++):
 
-
+print()
+print("Verwendung von range(), range(10), range(10,100,10) usw. ")
 # range 0 - 10
 for aa in range(10):
-    print('aa:', aa)
-
+    print('aa:', aa, end='  ')
 print()
 
 for bb in range(8,10):
-    print('bb:', bb)
-
+    print('bb:', bb, end='  ')
+print()
 
 for cc in range(10,100, 10):
-    print('cc:', cc)
-
+    print('cc:', cc, end='  ')
 del(cc) # remove cc from local scope/namespace
-
 print()
 
 for dd in range(100,10, -10):
-    print('dd:', dd)
+    print('dd:', dd, end='  ')
 
 print ('xxxx')
 for ee in range(100,10, 10): # bedingung ist nicht erfüllt
-    print('ee:', ee)
-
+    print('ee:', ee, end='  ')
+print()
 
 my_list = ['aa', 'bb', 'cc', 'dd', 'ee', 'ff', 'gg']
 my_str = "0123456789"
@@ -106,6 +104,7 @@ print(my_list)
 my_list.append('zz')
 print(my_list)
 
+print()
 
 
 # *args bedeutet entpacken aller erhaltenen argumente
@@ -144,9 +143,12 @@ my_pythonic_function(1, 2, drei=3, vier='four')
 ###  python3 exercise_day_4_axel.py blub bla toll
 
 # sdt input
+print()
 user_input = input('schreib was !! :')
 print()
 print(user_input, type(user_input))
+print()
 
 if __name__ == """__main__""":
     my_pythonic_function(sys.argv)
+print()
