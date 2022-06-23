@@ -1,36 +1,29 @@
-# #!/usr/bin/env python3
+#!/usr/bin/env python3
 import sys
 
-import  franco_machine
-from franco_machine.limit_error import LimitError
+#import  franco_machine
+#from franco_machine.limit_error import LimitError
+#from franco_machine.rate_table_data import dpag_0_1, dpag_0_2
 
-# erzeuge eine Machine
-myMachine = franco_machine.machine.machine(
-    machine_type="PostBaseMini",
-    country = 'de',
-    max_transaction_amount = 10000000,
-    max_haben = 10000000,
-    sw_version = '0.0.1'
-)
+import customer_dpag_001
+#import customer_usps_001
 
-myMachine.load_money_amount(amount=500000)
 
-# Aufladungsbetrag
-transaction_amount = 100000
 
-# Machine aufladen $100
-transaction_succesfull, ret_msg = myMachine.load_money_amount(transaction_amount)
 
-if transaction_succesfull:     #load succesfull
-    print ("money loading succesfull")
 
-else: # load not succesfull
-    print(ret_msg)
 
-# Abbuchung 1$
-myMachine.frank_money_amount(1000)
 
-print(myMachine.haben)
+
+#if transaction_succesfull:     #load succesfull
+#    print ("money loading succesfull")
+#
+#else: # load not succesfull
+#    print(ret_msg)
+
+
+
+
 
 
 #try:
