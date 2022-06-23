@@ -12,7 +12,7 @@ class TestMachineMethods(unittest.TestCase):
 
         self.machine_one = franco_machine.machine.machine(
         machine_type="PostBaseMini",
-        country = 'de',
+        company = 'dpag',
         max_transaction_amount = 10000000,
         max_haben = 10000000,
         sw_version = '0.0.1'

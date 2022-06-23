@@ -7,16 +7,17 @@ class machine():
 
     def __init__(self,
                  machine_type,
-                 country,
+                 company,
                  max_transaction_amount,
                  max_haben,
-                 sw_version ):
+                 sw_version,
+                 rate_table = {} ):
 
         self.machine_type=machine_type
-        self.country=country
+        self.company=company
         self.sw_version=sw_version
 
-        self.rate_table=[]
+        self.rate_table=rate_table
         self.rt_version=None
 
         self.postal_sn=None
@@ -43,7 +44,7 @@ class machine():
         if self.max_transaction_amount < amount:
 
             msg = ('Transaction amount is greater than max '
-                    f'({self.max_transaction_amount})')
+            f'({self.max_transaction_amount})')
 
             return (False , msg)
 
@@ -84,3 +85,18 @@ class machine():
         assert (self.haben + self.verbrauch == self.total_register)
 
         return success
+
+    def frank_product(self, product_name):
+
+        #print(self.rate_table)
+
+
+        amount = self.rate_table.rates[product_name]
+
+        success = self.frank_money_amount(amount)
+
+        return success
+
+    def update_rate_table(self, new_rate_table):
+
+        self.rate_table = new_rate_table
