@@ -15,26 +15,7 @@ class BaseRateTable():
     # Produkttabelle
 
 
-dpag_0_1 = BaseRateTable(
 
-    ver     = 0.1,
-    company = 'dpag',
-    rates   = { "Standard Letter" :   850,
-                "Einschreiben"    :  1800,
-                "Warensendung"    :  2700,
-                 }
-    )
-
-
-dpag_0_2 = BaseRateTable(
-
-    ver     = 0.2,
-    company = 'dpag',
-    rates   = { "Standard Letter" :   900,
-                "Einschreiben"    :  2000,
-                "Warensendung"    :  2700,
-                 }
-    )
 
 
 #    "Standard Letter 100gr" 0.85#
