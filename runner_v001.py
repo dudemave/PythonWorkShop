@@ -4,7 +4,8 @@ import sys
 import  franco_machine
 from franco_machine.limit_error import LimitError
 
-# erzeuge eine Machine
+
+# eine Machine erzeugen
 myMachine = franco_machine.machine.machine(
     machine_type="PostBaseMini",
     country = 'de',
@@ -13,24 +14,29 @@ myMachine = franco_machine.machine.machine(
     sw_version = '0.0.1'
 )
 
+
+
+# Machine mit 500$ auflanden
 myMachine.load_money_amount(amount=500000)
 
-# Aufladungsbetrag
-transaction_amount = 100000
 
-# Machine aufladen $100
+transaction_amount = 10000001
+
+# return wert ist ein tuple, welches hier entpackt wurde
 transaction_succesfull, ret_msg = myMachine.load_money_amount(transaction_amount)
 
-if transaction_succesfull:     #load succesfull
-    print ("money loading succesfull")
+print (transaction_succesfull)
 
-else: # load not succesfull
+if transaction_succesfull:
+    #load succesfull
+    pass
+
+else:
+    # load not succesfull
     print(ret_msg)
 
-# Abbuchung 1$
+# frankieren 1$
 myMachine.frank_money_amount(1000)
-
-print(myMachine.haben)
 
 
 #try:
