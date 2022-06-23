@@ -26,7 +26,7 @@ print(random.choice(list(all_prd)))
 print(random.choice(list(all_prd)))
 print(random.choice(list(all_prd)))
 # 4 x wir ein zufäliger Wert des Dictionaries augegeben
-
+ 
 print()
 print("Items:")
 for vv in all_prd.items():
